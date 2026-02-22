@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE Platform - Color Palette</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #17a697, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #17a697;
+            padding-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .color-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .color-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .color-swatch {
+            height: 150px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding-bottom: 1rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .color-info {
+            padding: 1rem;
+            background: #f9fafb;
+        }
+
+        .color-name {
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .color-codes {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .color-code {
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #17a697;
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .color-usage {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .gradient-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .gradient-preview {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-info {
+            padding: 1.5rem;
+            background: #f9fafb;
+        }
+
+        .gradient-name {
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-code {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.75rem;
+            overflow-x: auto;
+            border: 1px solid #e5e7eb;
+        }
+
+        .gradient-angle {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-usage {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e5e7eb;
+            font-style: italic;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .palette-matrix {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .palette-matrix th,
+        .palette-matrix td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid #e5e7eb;
+        }
+
+        .palette-matrix th {
+            background: #f9fafb;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .palette-matrix code {
+            font-family: 'Courier New', monospace;
+            background: #f9fafb;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .color-dot {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+            border: 1px solid #e5e7eb;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .tab {
+            padding: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .tab:hover {
+            color: #17a697;
+        }
+
+        .tab.active {
+            color: #17a697;
+            border-bottom-color: #17a697;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .harmony-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .harmony-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .harmony-preview {
+            display: flex;
+            height: 120px;
+        }
+
+        .harmony-color {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .harmony-info {
+            padding: 1rem;
+            background: #f9fafb;
+        }
+
+        .harmony-name {
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .color-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .color-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .color-item-code {
+            font-family: 'Courier New', monospace;
+            color: #666;
+        }
+
+        /* TYPOGRAPHY SECTION */
+        .typography-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .font-sample {
+            padding: 1.5rem;
+            background: #f9fafb;
+            border-radius: 8px;
+            border-left: 4px solid #17a697;
+        }
+
+        .font-size {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .font-size-display {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .font-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.85rem;
+        }
+
+        .spec {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .spec-label {
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .spec-value {
+            color: #1a1a1a;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(23, 166, 151, 0.08), rgba(79, 70, 229, 0.08));
+            border-left: 4px solid #17a697;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .info-box h4 {
+            color: #17a697;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .info-box p {
+            color: #1a1a1a;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .info-box ul {
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+            color: #1a1a1a;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .info-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        .shadow-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .shadow-card {
+            padding: 2rem;
+            border-radius: 8px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .shadow-sm {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .shadow-md {
+            box-shadow: 0 4px 12px rgba(23, 166, 151, 0.2);
+        }
+
+        .shadow-lg {
+            box-shadow: 0 8px 24px rgba(23, 166, 151, 0.1);
+        }
+
+        .shadow-xl {
+            box-shadow: 0 12px 32px rgba(23, 166, 151, 0.12);
+        }
+
+        .shadow-label {
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .shadow-code {
+            margin-top: 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #666;
+            word-break: break-all;
+        }
+
+        @media (max-width: 768px) {
+            .color-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gradient-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .section h2 {
+                font-size: 1.4rem;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 IEEE Platform - Color Palette & Typography Guide</h1>
+        <p class="subtitle">Complete design system with Poppins font family</p>
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .color-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .color-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .color-swatch {
+            height: 150px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding-bottom: 1rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .color-info {
+            padding: 1rem;
+            background: #f9fafb;
+        }
+
+        .color-name {
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .color-codes {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .color-code {
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #17a697;
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+        }
+
+        .color-usage {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .gradient-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .gradient-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .gradient-preview {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .gradient-info {
+            padding: 1.5rem;
+            background: #f9fafb;
+        }
+
+        .gradient-name {
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .gradient-code {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.75rem;
+            overflow-x: auto;
+            border: 1px solid #e5e7eb;
+        }
+
+        .gradient-angle {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .gradient-usage {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e5e7eb;
+            font-style: italic;
+        }
+
+        .palette-matrix {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .palette-matrix th,
+        .palette-matrix td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid #e5e7eb;
+        }
+
+        .palette-matrix th {
+            background: #f9fafb;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .palette-matrix code {
+            font-family: 'Courier New', monospace;
+            background: #f9fafb;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .color-dot {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+            border: 1px solid #e5e7eb;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .tab {
+            padding: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            color: #17a697;
+        }
+
+        .tab.active {
+            color: #17a697;
+            border-bottom-color: #17a697;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .harmony-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .harmony-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .harmony-preview {
+            display: flex;
+            height: 120px;
+        }
+
+        .harmony-color {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .harmony-info {
+            padding: 1rem;
+            background: #f9fafb;
+        }
+
+        .harmony-name {
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .color-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .color-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .color-item-code {
+            font-family: 'Courier New', monospace;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .color-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gradient-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .section h2 {
+                font-size: 1.4rem;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 IEEE Platform Color Palette</h1>
+        <p class="subtitle">Complete color system for researchers, investors, and stakeholders</p>
+
+        <!-- PRIMARY COLORS -->
+        <div class="section">
+            <h2>Primary Colors</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">Core brand colors used throughout the platform</p>
+            
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #17a697;">Primary Teal</div>
+                    <div class="color-info">
+                        <div class="color-name">Primary Teal</div>
+                        <div class="color-codes">
+                            <div class="color-code">
+                                <span>#17a697</span>
+                                <button class="copy-btn" onclick="copyToClipboard('#17a697')">Copy</button>
+                            </div>
+                            <div class="color-code">
+                                <span>rgb(23, 166, 151)</span>
+                                <button class="copy-btn" onclick="copyToClipboard('rgb(23, 166, 151)')">Copy</button>
+                            </div>
+                        </div>
+                        <div class="color-usage">Used for buttons, links, primary accents, active states</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #0f8c80;">Primary Dark</div>
+                    <div class="color-info">
+                        <div class="color-name">Primary Dark Teal</div>
+                        <div class="color-codes">
+                            <div class="color-code">
+                                <span>#0f8c80</span>
+                                <button class="copy-btn" onclick="copyToClipboard('#0f8c80')">Copy</button>
+                            </div>
+                            <div class="color-code">
+                                <span>rgb(15, 140, 128)</span>
+                                <button class="copy-btn" onclick="copyToClipboard('rgb(15, 140, 128)')">Copy</button>
+                            </div>
+                        </div>
+                        <div class="color-usage">Button hover states, gradient end, darker backgrounds</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #4f46e5;">Secondary Indigo</div>
+                    <div class="color-info">
+                        <div class="color-name">Secondary Indigo</div>
+                        <div class="color-codes">
+                            <div class="color-code">
+                                <span>#4f46e5</span>
+                                <button class="copy-btn" onclick="copyToClipboard('#4f46e5')">Copy</button>
+                            </div>
+                            <div class="color-code">
+                                <span>rgb(79, 70, 229)</span>
+                                <button class="copy-btn" onclick="copyToClipboard('rgb(79, 70, 229)')">Copy</button>
+                            </div>
+                        </div>
+                        <div class="color-usage">Gradient accents, secondary highlights, decorative elements</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEUTRAL COLORS -->
+        <div class="section">
+            <h2>Neutral Colors</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">Text, backgrounds, and border colors</p>
+            
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #1a1a1a; color: white;">Text Dark</div>
+                    <div class="color-info">
+                        <div class="color-name">Text Dark</div>
+                        <div class="color-codes">
+                            <div class="color-code">
+                                <span>#1a1a1a</span>
+                                <button class="copy-btn" onclick="copyToClipboard('#1a1a1a')">Copy</button>
+                            </div>
+                            <div class="color-code">
+                                <span>rgb(26, 26, 26)</span>
+                                <button class="copy-btn" onclick="copyToClipboard('rgb(26, 26, 26)')">Copy</button>
+                            </div>
+                        </div>
+                        <div class="color-usage">Headings, primary text, body copy | Contrast: 17.5:1</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #666;">Text Light</div>
+                    <div class="color-info">
+                        <div class="color-name">Text Light</div>
+                        <div class="color-codes">
+                            <div class="color-code">
+                                <span>#666666</span>
+                                <button class="copy-btn" onclick="copyToClipboard('#666666')">Copy</button>
+                            </div>
+                            <div class="color-code">
+                                <span>rgb(102, 102, 102)</span>
+                                <button class="copy-btn" onclick="copyToClipboard('rgb(102, 102, 102)')">Copy</button>
+                            </div>
+                        </div>
+                        <div class="color-usage">Secondary text, labels, descriptions, meta info | Contrast: 7:1</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #f5f7fa; border: 1px solid #e5e7eb;">BG Light</div>
+                    <div class="color-info">
+                        <div class="color-name">Background Light</div>
+                        <div class="color-codes">
+                            <div class="color-code">
+                                <span>#f5f7fa</span>
+                                <button class="copy-btn" onclick="copyToClipboard('#f5f7fa')">Copy</button>
+                            </div>
+                            <div class="color-code">
+                                <span>rgb(245, 247, 250)</span>
+                                <button class="copy-btn" onclick="copyToClipboard('rgb(245, 247, 250)')">Copy</button>
+                            </div>
+                        </div>
+                        <div class="color-usage">Page backgrounds, subtle fills, secondary card backgrounds</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #ffffff; border: 1px solid #e5e7eb;">White</div>
+                    <div class="color-info">
+                        <div class="color-name">White</div>
+                        <div class="color-codes">
+                            <div class="color-code">
+                                <span>#ffffff</span>
+                                <button class="copy-btn" onclick="copyToClipboard('#ffffff')">Copy</button>
+                            </div>
+                            <div class="color-code">
+                                <span>rgb(255, 255, 255)</span>
+                                <button class="copy-btn" onclick="copyToClipboard('rgb(255, 255, 255)')">Copy</button>
+                            </div>
+                        </div>
+                        <div class="color-usage">Cards, panels, modals, primary content containers</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #e5e7eb;">Border</div>
+                    <div class="color-info">
+                        <div class="color-name">Border</div>
+                        <div class="color-codes">
+                            <div class="color-code">
+                                <span>#e5e7eb</span>
+                                <button class="copy-btn" onclick="copyToClipboard('#e5e7eb')">Copy</button>
+                            </div>
+                            <div class="color-code">
+                                <span>rgb(229, 231, 235)</span>
+                                <button class="copy-btn" onclick="copyToClipboard('rgb(229, 231, 235)')">Copy</button>
+                            </div>
+                        </div>
+                        <div class="color-usage">Card borders, dividers, input borders, subtle separators</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STATUS COLORS -->
+        <div class="section">
+            <h2>Status & Semantic Colors</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">For messaging, alerts, and status indicators</p>
+            
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #10b981;">Success</div>
+                    <div class="color-info">
+                        <div class="color-name">Success Green</div>
+                        <div class="color-codes">
+                            <div class="color-code">
+                                <span>#10b981</span>
+                                <button class="copy-btn" onclick="copyToClipboard('#10b981')">Copy</button>
+                            </div>
+                            <div class="color-code">
+                                <span>rgb(16, 185, 129)</span>
+                                <button class="copy-btn" onclick="copyToClipboard('rgb(16, 185, 129)')">Copy</button>
+                            </div>
+                        </div>
+                        <div class="color-usage">Success messages, checkmarks, low-risk badges, positive indicators</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #f59e0b;">Warning</div>
+                    <div class="color-info">
+                        <div class="color-name">Warning Amber</div>
+                        <div class="color-codes">
+                            <div class="color-code">
+                                <span>#f59e0b</span>
+                                <button class="copy-btn" onclick="copyToClipboard('#f59e0b')">Copy</button>
+                            </div>
+                            <div class="color-code">
+                                <span>rgb(245, 158, 11)</span>
+                                <button class="copy-btn" onclick="copyToClipboard('rgb(245, 158, 11)')">Copy</button>
+                            </div>
+                        </div>
+                        <div class="color-usage">Warning messages, medium-risk badges, cautionary indicators</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #ef4444;">Error</div>
+                    <div class="color-info">
+                        <div class="color-name">Error Red</div>
+                        <div class="color-codes">
+                            <div class="color-code">
+                                <span>#ef4444</span>
+                                <button class="copy-btn" onclick="copyToClipboard('#ef4444')">Copy</button>
+                            </div>
+                            <div class="color-code">
+                                <span>rgb(239, 68, 68)</span>
+                                <button class="copy-btn" onclick="copyToClipboard('rgb(239, 68, 68)')">Copy</button>
+                            </div>
+                        </div>
+                        <div class="color-usage">Error messages, high-risk badges, destructive actions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GRADIENTS -->
+        <div class="section">
+            <h2>Gradient Definitions</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">All gradients use 135° angle (diagonal top-left to bottom-right)</p>
+            
+            <div class="gradient-showcase">
+                <div class="gradient-card">
+                    <div class="gradient-preview" style="background: linear-gradient(135deg, #17a697, #0f8c80);">Primary Gradient</div>
+                    <div class="gradient-info">
+                        <div class="gradient-name">Primary Gradient</div>
+                        <div class="gradient-angle">📐 Angle: 135°</div>
+                        <div class="gradient-code">linear-gradient(135deg, #17a697 0%, #0f8c80 100%)</div>
+                        <div class="gradient-usage">Buttons, icons, hero sections, stat values</div>
+                    </div>
+                </div>
+
+                <div class="gradient-card">
+                    <div class="gradient-preview" style="background: linear-gradient(135deg, #17a697, #4f46e5);">Secondary Gradient</div>
+                    <div class="gradient-info">
+                        <div class="gradient-name">Secondary Gradient</div>
+                        <div class="gradient-angle">📐 Angle: 135°</div>
+                        <div class="gradient-code">linear-gradient(135deg, #17a697 0%, #4f46e5 100%)</div>
+                        <div class="gradient-usage">Headings, logos, featured elements, gradient text</div>
+                    </div>
+                </div>
+
+                <div class="gradient-card">
+                    <div class="gradient-preview" style="background: linear-gradient(135deg, rgba(23, 166, 151, 0.08), rgba(79, 70, 229, 0.08));">Subtle Gradient</div>
+                    <div class="gradient-info">
+                        <div class="gradient-name">Subtle Gradient</div>
+                        <div class="gradient-angle">📐 Angle: 135°</div>
+                        <div class="gradient-code">linear-gradient(135deg, rgba(23, 166, 151, 0.08), rgba(79, 70, 229, 0.08))</div>
+                        <div class="gradient-usage">Info boxes, card backgrounds, subtle fills</div>
+                    </div>
+                </div>
+
+                <div class="gradient-card">
+                    <div class="gradient-preview" style="background: linear-gradient(135deg, #f5f7fa, #e8f5f3);">Page Background</div>
+                    <div class="gradient-info">
+                        <div class="gradient-name">Page Background</div>
+                        <div class="gradient-angle">📐 Angle: 135°</div>
+                        <div class="gradient-code">linear-gradient(135deg, #f5f7fa 0%, #e8f5f3 100%)</div>
+                        <div class="gradient-usage">Page backgrounds, hero sections, full-width areas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLOR HARMONIES -->
+        <div class="section">
+            <h2>Color Harmonies & Combinations</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">Pre-built color combinations for common UI patterns</p>
+            
+            <div class="harmony-grid">
+                <div class="harmony-card">
+                    <div class="harmony-preview">
+                        <div class="harmony-color" style="background: #17a697;">Primary</div>
+                        <div class="harmony-color" style="background: #ffffff; color: #1a1a1a;">White</div>
+                    </div>
+                    <div class="harmony-info">
+                        <div class="harmony-name">Primary Button</div>
+                        <div class="color-list">
+                            <div class="color-item">
+                                <span class="color-dot" style="background: #17a697;"></span>
+                                <span class="color-item-code">Background: #17a697</span>
+                            </div>
+                            <div class="color-item">
+                                <span class="color-dot" style="background: white; border-color: #ccc;"></span>
+                                <span class="color-item-code">Text: white</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="harmony-card">
+                    <div class="harmony-preview">
+                        <div class="harmony-color" style="background: #f5f7fa; color: #1a1a1a;">Light</div>
+                        <div class="harmony-color" style="background: #e5e7eb; color: #1a1a1a;">Border</div>
+                    </div>
+                    <div class="harmony-info">
+                        <div class="harmony-name">Secondary Button</div>
+                        <div class="color-list">
+                            <div class="color-item">
+                                <span class="color-dot" style="background: #f5f7fa; border-color: #999;"></span>
+                                <span class="color-item-code">Background: #f5f7fa</span>
+                            </div>
+                            <div class="color-item">
+                                <span class="color-dot" style="background: #e5e7eb;"></span>
+                                <span class="color-item-code">Border: #e5e7eb</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="harmony-card">
+                    <div class="harmony-preview">
+                        <div class="harmony-color" style="background: #d1fae5; color: #065f46;">Badge</div>
+                    </div>
+                    <div class="harmony-info">
+                        <div class="harmony-name">Success Badge</div>
+                        <div class="color-list">
+                            <div class="color-item">
+                                <span class="color-dot" style="background: #d1fae5;"></span>
+                                <span class="color-item-code">Background: #d1fae5</span>
+                            </div>
+                            <div class="color-item">
+                                <span class="color-dot" style="background: #065f46;"></span>
+                                <span class="color-item-code">Text: #065f46</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="harmony-card">
+                    <div class="harmony-preview">
+                        <div class="harmony-color" style="background: #fef3c7; color: #92400e;">Badge</div>
+                    </div>
+                    <div class="harmony-info">
+                        <div class="harmony-name">Warning Badge</div>
+                        <div class="color-list">
+                            <div class="color-item">
+                                <span class="color-dot" style="background: #fef3c7;"></span>
+                                <span class="color-item-code">Background: #fef3c7</span>
+                            </div>
+                            <div class="color-item">
+                                <span class="color-dot" style="background: #92400e;"></span>
+                                <span class="color-item-code">Text: #92400e</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="harmony-card">
+                    <div class="harmony-preview">
+                        <div class="harmony-color" style="background: #fee; color: #ef4444;">Badge</div>
+                    </div>
+                    <div class="harmony-info">
+                        <div class="harmony-name">Error Badge</div>
+                        <div class="color-list">
+                            <div class="color-item">
+                                <span class="color-dot" style="background: #fee;"></span>
+                                <span class="color-item-code">Background: #fee</span>
+                            </div>
+                            <div class="color-item">
+                                <span class="color-dot" style="background: #ef4444;"></span>
+                                <span class="color-item-code">Text: #ef4444</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="harmony-card">
+                    <div class="harmony-preview">
+                        <div class="harmony-color" style="background: #ffffff; color: #1a1a1a; border: 1px solid #e5e7eb;">Card</div>
+                    </div>
+                    <div class="harmony-info">
+                        <div class="harmony-name">Card Container</div>
+                        <div class="color-list">
+                            <div class="color-item">
+                                <span class="color-dot" style="background: white; border-color: #999;"></span>
+                                <span class="color-item-code">Background: #ffffff</span>
+                            </div>
+                            <div class="color-item">
+                                <span class="color-dot" style="background: #e5e7eb;"></span>
+                                <span class="color-item-code">Border: #e5e7eb</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLOR REFERENCE TABLE -->
+        <div class="section">
+            <h2>Complete Color Reference</h2>
+            <table class="palette-matrix">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Hex</th>
+                        <th>RGB</th>
+                        <th>Usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="color-dot" style="background: #17a697;"></span>Primary Teal</td>
+                        <td><code>#17a697</code></td>
+                        <td><code>rgb(23, 166, 151)</code></td>
+                        <td>Buttons, links, primary accents</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background: #0f8c80;"></span>Primary Dark</td>
+                        <td><code>#0f8c80</code></td>
+                        <td><code>rgb(15, 140, 128)</code></td>
+                        <td>Hover states, gradient end</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background: #4f46e5;"></span>Secondary Indigo</td>
+                        <td><code>#4f46e5</code></td>
+                        <td><code>rgb(79, 70, 229)</code></td>
+                        <td>Gradient accents, highlights</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background: #1a1a1a;"></span>Text Dark</td>
+                        <td><code>#1a1a1a</code></td>
+                        <td><code>rgb(26, 26, 26)</code></td>
+                        <td>Headings, primary text</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background: #666;"></span>Text Light</td>
+                        <td><code>#666666</code></td>
+                        <td><code>rgb(102, 102, 102)</code></td>
+                        <td>Secondary text, labels</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background: #f5f7fa; border-color: #999;"></span>BG Light</td>
+                        <td><code>#f5f7fa</code></td>
+                        <td><code>rgb(245, 247, 250)</code></td>
+                        <td>Page backgrounds, fills</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background: white; border-color: #999;"></span>White</td>
+                        <td><code>#ffffff</code></td>
+                        <td><code>rgb(255, 255, 255)</code></td>
+                        <td>Cards, panels, containers</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background: #e5e7eb;"></span>Border</td>
+                        <td><code>#e5e7eb</code></td>
+                        <td><code>rgb(229, 231, 235)</code></td>
+                        <td>Borders, dividers</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background: #10b981;"></span>Success</td>
+                        <td><code>#10b981</code></td>
+                        <td><code>rgb(16, 185, 129)</code></td>
+                        <td>Success messages, low risk</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background: #f59e0b;"></span>Warning</td>
+                        <td><code>#f59e0b</code></td>
+                        <td><code>rgb(245, 158, 11)</code></td>
+                        <td>Warnings, medium risk</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background: #ef4444;"></span>Error</td>
+                        <td><code>#ef4444</code></td>
+                        <td><code>rgb(239, 68, 68)</code></td>
+                        <td>Errors, high risk</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- QUICK COPY SECTION -->
+        <div class="section">
+            <h2>Quick Copy - All Colors</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">CSS variables ready to use in your project</p>
+            <div class="gradient-code">
+:root {
+  /* Primary Colors */
+  --primary: #17a697;
+  --primary-dark: #0f8c80;
+  --secondary: #4f46e5;
+  
+  /* Neutrals */
+  --text-dark: #1a1a1a;
+  --text-light: #666666;
+  --bg-light: #f5f7fa;
+  --bg-white: #ffffff;
+  --border: #e5e7eb;
+  
+  /* Status */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  /* Font */
+  --font-primary: 'Poppins', sans-serif;
+}
+            </div>
+        </div>
+
+        <!-- TYPOGRAPHY SECTION -->
+        <div class="section">
+            <h2>Typography System</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">Complete font sizing and weight scale using Poppins font family</p>
+
+            <div class="info-box">
+                <h4>📢 Font Family</h4>
+                <p><strong>Primary Font:</strong> Poppins</p>
+                <p><strong>Fallback Stack:</strong> -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif</p>
+                <p><strong>Import:</strong> <code>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');</code></p>
+                <p><strong>Why Poppins?</strong> Modern, geometric sans-serif with excellent readability. Perfect for tech platforms with friendly, approachable feel.</p>
+            </div>
+
+            <h3>Font Weights Available</h3>
+            <div class="typography-showcase">
+                <div class="font-sample">
+                    <div class="spec-label">Light (300)</div>
+                    <div class="font-size-display" style="font-weight: 300; font-size: 1.1rem;">The quick brown fox jumps over the lazy dog</div>
+                    <div class="font-specs">
+                        <div class="spec">
+                            <div class="spec-label">Usage</div>
+                            <div class="spec-value">Fine print, hints</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="font-sample">
+                    <div class="spec-label">Regular (400)</div>
+                    <div class="font-size-display" style="font-weight: 400; font-size: 1.1rem;">The quick brown fox jumps over the lazy dog</div>
+                    <div class="font-specs">
+                        <div class="spec">
+                            <div class="spec-label">Usage</div>
+                            <div class="spec-value">Body text, descriptions</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="font-sample">
+                    <div class="spec-label">Medium (500)</div>
+                    <div class="font-size-display" style="font-weight: 500; font-size: 1.1rem;">The quick brown fox jumps over the lazy dog</div>
+                    <div class="font-specs">
+                        <div class="spec">
+                            <div class="spec-label">Usage</div>
+                            <div class="spec-value">Emphasis, medium text</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="font-sample">
+                    <div class="spec-label">Semibold (600)</div>
+                    <div class="font-size-display" style="font-weight: 600; font-size: 1.1rem;">The quick brown fox jumps over the lazy dog</div>
+                    <div class="font-specs">
+                        <div class="spec">
+                            <div class="spec-label">Usage</div>
+                            <div class="spec-value">Labels, button text</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="font-sample">
+                    <div class="spec-label">Bold (700)</div>
+                    <div class="font-size-display" style="font-weight: 700; font-size: 1.1rem;">The quick brown fox jumps over the lazy dog</div>
+                    <div class="font-specs">
+                        <div class="spec">
+                            <div class="spec-label">Usage</div>
+                            <div class="spec-value">Headings, titles</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="font-sample">
+                    <div class="spec-label">Extra Bold (800)</div>
+                    <div class="font-size-display" style="font-weight: 800; font-size: 1.1rem;">The quick brown fox jumps over the lazy dog</div>
+                    <div class="font-specs">
+                        <div class="spec">
+                            <div class="spec-label">Usage</div>
+                            <div class="spec-value">Hero headings, logo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Font Size Scale</h3>
+            <div class="typography-showcase">
+                <div class="font-sample">
+                    <div class="spec-label">H1 - Page Heading</div>
+                    <div class="font-size-display" style="font-size: 2.2rem; font-weight: 800;">Discover Natural Therapeutics</div>
+                    <div class="font-specs">
+                        <div class="spec">
+                            <div class="spec-label">Size</div>
+                            <div class="spec-value">2.2rem / 35px</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Weight</div>
+                            <div class="spec-value">800 (Extra Bold)</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Line Height</div>
+                            <div class="spec-value">1.2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="font-sample">
+                    <div class="spec-label">H2 - Section Header</div>
+                    <div class="font-size-display" style="font-size: 1.8rem; font-weight: 700;">Section Title Here</div>
+                    <div class="font-specs">
+                        <div class="spec">
+                            <div class="spec-label">Size</div>
+                            <div class="spec-value">1.8rem / 28.8px</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Weight</div>
+                            <div class="spec-value">700 (Bold)</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Line Height</div>
+                            <div class="spec-value">1.3</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="font-sample">
+                    <div class="spec-label">H3 - Card Title</div>
+                    <div class="font-size-display" style="font-size: 1.3rem; font-weight: 700;">Card Heading</div>
+                    <div class="font-specs">
+                        <div class="spec">
+                            <div class="spec-label">Size</div>
+                            <div class="spec-value">1.3rem / 20.8px</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Weight</div>
+                            <div class="spec-value">700 (Bold)</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Line Height</div>
+                            <div class="spec-value">1.4</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="font-sample">
+                    <div class="spec-label">Body Large</div>
+                    <div class="font-size-display" style="font-size: 1.1rem; font-weight: 400; line-height: 1.6;">This is body text in the larger size. Used for introductions and important descriptions that need slightly more prominence.</div>
+                    <div class="font-specs">
+                        <div class="spec">
+                            <div class="spec-label">Size</div>
+                            <div class="spec-value">1.1rem / 17.6px</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Weight</div>
+                            <div class="spec-value">400 (Regular)</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Line Height</div>
+                            <div class="spec-value">1.6</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="font-sample">
+                    <div class="spec-label">Body Regular</div>
+                    <div class="font-size-display" style="font-size: 0.95rem; font-weight: 400; line-height: 1.6;">This is the standard body text size. Used for paragraphs, descriptions, and most readable content across the platform.</div>
+                    <div class="font-specs">
+                        <div class="spec">
+                            <div class="spec-label">Size</div>
+                            <div class="spec-value">0.95rem / 15.2px</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Weight</div>
+                            <div class="spec-value">400 (Regular)</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Line Height</div>
+                            <div class="spec-value">1.6</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="font-sample">
+                    <div class="spec-label">Body Small</div>
+                    <div class="font-size-display" style="font-size: 0.9rem; font-weight: 400; line-height: 1.5;">Secondary text, helper text, and supporting information go here.</div>
+                    <div class="font-specs">
+                        <div class="spec">
+                            <div class="spec-label">Size</div>
+                            <div class="spec-value">0.9rem / 14.4px</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Weight</div>
+                            <div class="spec-value">400 (Regular)</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Line Height</div>
+                            <div class="spec-value">1.5</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="font-sample">
+                    <div class="spec-label">Label</div>
+                    <div class="font-size-display" style="font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">LABEL TEXT</div>
+                    <div class="font-specs">
+                        <div class="spec">
+                            <div class="spec-label">Size</div>
+                            <div class="spec-value">0.85rem / 13.6px</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Weight</div>
+                            <div class="spec-value">600 (Semibold)</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Letter Spacing</div>
+                            <div class="spec-value">0.5px</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="font-sample">
+                    <div class="spec-label">Caption</div>
+                    <div class="font-size-display" style="font-size: 0.8rem; font-weight: 500; color: #666;">Small supporting text and captions</div>
+                    <div class="font-specs">
+                        <div class="spec">
+                            <div class="spec-label">Size</div>
+                            <div class="spec-value">0.8rem / 12.8px</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Weight</div>
+                            <div class="spec-value">500 (Medium)</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Line Height</div>
+                            <div class="spec-value">1.4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHADOWS SECTION -->
+        <div class="section">
+            <h2>Shadow System</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">Depth indicators for layering and hierarchy</p>
+
+            <div class="shadow-showcase">
+                <div class="shadow-card shadow-sm">
+                    <div style="height: 60px; width: 60px; background: linear-gradient(135deg, #17a697, #0f8c80); border-radius: 8px;"></div>
+                    <div class="shadow-label">Shadow SM</div>
+                    <div class="shadow-code">0 2px 8px rgba(0,0,0,0.05)</div>
+                </div>
+
+                <div class="shadow-card shadow-md">
+                    <div style="height: 60px; width: 60px; background: linear-gradient(135deg, #17a697, #0f8c80); border-radius: 8px;"></div>
+                    <div class="shadow-label">Shadow MD</div>
+                    <div class="shadow-code">0 4px 12px rgba(23,166,151,0.2)</div>
+                </div>
+
+                <div class="shadow-card shadow-lg">
+                    <div style="height: 60px; width: 60px; background: linear-gradient(135deg, #17a697, #0f8c80); border-radius: 8px;"></div>
+                    <div class="shadow-label">Shadow LG</div>
+                    <div class="shadow-code">0 8px 24px rgba(23,166,151,0.1)</div>
+                </div>
+
+                <div class="shadow-card shadow-xl">
+                    <div style="height: 60px; width: 60px; background: linear-gradient(135deg, #17a697, #0f8c80); border-radius: 8px;"></div>
+                    <div class="shadow-label">Shadow XL</div>
+                    <div class="shadow-code">0 12px 32px rgba(23,166,151,0.12)</div>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 2rem;">
+                <h4>💡 Shadow Best Practices</h4>
+                <ul>
+                    <li><strong>SM:</strong> Hover states on cards, subtle depth indicators</li>
+                    <li><strong>MD:</strong> Buttons, floating elements, interactive components</li>
+                    <li><strong>LG:</strong> Cards, modals, prominent sections</li>
+                    <li><strong>XL:</strong> Modals, dropdowns, maximum elevation</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DESIGN CHECKLIST -->
+        <div class="section">
+            <h2>🎯 Designer Checklist</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">Things to keep in mind when designing for IEEE Platform</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div class="info-box">
+                    <h4>✅ Do's</h4>
+                    <ul>
+                        <li>Use <strong>Poppins</strong> font for all text elements</li>
+                        <li>Apply primary teal (#17a697) for interactive elements</li>
+                        <li>Use <strong>135° gradients</strong> consistently</li>
+                        <li>Maintain 1.5rem gaps between grid elements</li>
+                        <li>Add <strong>lift effect</strong> on hover: translateY(-2px)</li>
+                        <li>Always include <strong>focus states</strong> for accessibility</li>
+                        <li>Use <strong>line-height 1.6</strong> for body text readability</li>
+                        <li>Test color <strong>contrast ratios</strong> (WCAG AA minimum)</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h4>❌ Don'ts</h4>
+                    <ul>
+                        <li>Mix gradient angles (keep 135°)</li>
+                        <li>Use more than 2 colors in a gradient</li>
+                        <li>Set font-size below 0.75rem</li>
+                        <li>Use pure black (#000) for text</li>
+                        <li>Add shadows without purpose</li>
+                        <li>Skip focus states for keyboard navigation</li>
+                        <li>Mix typefaces (use Poppins only)</li>
+                        <li>Ignore mobile responsiveness</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 1.5rem;">
+                <h4>📱 Responsive Breakpoints to Remember</h4>
+                <p><strong>Desktop:</strong> 1200px+ — Full feature set, multi-column layouts</p>
+                <p><strong>Tablet:</strong> 768px - 1023px — 2-column grids, hidden navigation</p>
+                <p><strong>Mobile:</strong> 320px - 767px — 1-column layouts, simplified navigation</p>
+            </div>
+        </div>
+
+        <!-- QUICK IMPORT -->
+        <div class="section">
+            <h2>Quick Import</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">Copy this to your CSS file to get started</p>
+            <div class="gradient-code">
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* CSS Variables */
+:root {
+  --primary: #17a697;
+  --primary-dark: #0f8c80;
+  --secondary: #4f46e5;
+  --text-dark: #1a1a1a;
+  --text-light: #666666;
+  --bg-light: #f5f7fa;
+  --bg-white: #ffffff;
+  --border: #e5e7eb;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --font-primary: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-dark);
+  background: var(--bg-light);
+}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied: ' + text);
+            });
+        }
+    </script>
+</body>
+</html>
